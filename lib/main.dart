@@ -28,8 +28,8 @@ void main() async {
 
   Loggy.initLoggy(logPrinter: const PrettyPrinter(showColors: true));
   await _openBox();
-  //TODO: change the ILocalAuthSource to one using HIVE
-  Get.put<ILocalAuthSource>(SharedPrefLocalAuthSource());
+  // Changed to use HiveSource instead of SharedPrefLocalAuthSource
+  Get.put<ILocalAuthSource>(HiveSource());
   Get.put<IAuthRepo>(AuthRepo(Get.find()));
   Get.put(AuthUseCase(Get.find()));
   Get.put(AuthController(Get.find()));
